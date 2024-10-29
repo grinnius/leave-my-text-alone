@@ -245,6 +245,8 @@
 
 </script>
 
+<div id="build-info"></div>
+  
 <textarea rows="10" cols="90" id="mytext">
 Write something smart here...
 Жи и ши пиши с буквой и
@@ -256,6 +258,16 @@ Write something smart here...
 <input type="button" value="Stop crawl" id="stopCrawlBtn"/>
 
 <div id="result"></div>
+
+<script>
+  fetch('buildInfo.json')
+    .then(response => response.json())
+    .then(data => {
+      const buildInfo = document.getElementById("build-info");
+      buildInfo.innerHTML = `Build #: ${data.buildNumber} - Last Modified: ${data.timestamp}`;
+    })
+    .catch(error => console.error("Could not load build info:", error));
+</script>
 
 <script>
 
