@@ -1,4 +1,12 @@
-"scripts": {
-  "updateBuildInfo": "node UpdateBuildInfo.js",
-  "build": "npm run updateBuildInfo"
+{
+  "name": "leave-my-text-alone",
+  "version": "1.0.0",
+  "description": "A simple project",
+  "scripts": {
+    "updateBuildInfo": "node UpdateBuildInfo.js",
+    "build": "npm run updateBuildInfo"
+  },
+  "keywords": [],
+  "author": "grinnius",
+  "license": "ISC"
 }
