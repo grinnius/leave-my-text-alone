@@ -2,7 +2,11 @@ const fs = require('fs');
 const path = require('path');
 
 // File path to store the build info
-const buildInfoPath = path.join(__dirname, 'buildInfo.json');
+const outputDir = path.join(__dirname, 'LeaveMyTextAlone');
+if (!fs.existsSync(outputDir)){
+    fs.mkdirSync(outputDir);
+}
+const buildInfoPath = path.join(outputDir, 'buildInfo.json');
 
 // Load the existing build number from environment variables or start with 1
 const buildNumber = process.env.BUILD_NUMBER ? parseInt(process.env.BUILD_NUMBER, 10) + 1 : 1;
