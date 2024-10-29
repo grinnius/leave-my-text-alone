@@ -1,4 +1,4 @@
 "scripts": {
-  "updateBuildInfo": "node updateBuildInfo.js",
+  "updateBuildInfo": "node UpdateBuildInfo.js",
   "build": "npm run updateBuildInfo"
 }
