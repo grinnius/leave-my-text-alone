@@ -10,7 +10,7 @@ if (!fs.existsSync(outputDir)){
 }
 const buildInfoPath = path.join(outputDir, 'buildInfo.json');
 
-console.log(`(grinnius)---> outputDir:${outputDir}`);
+console.log(`(grinnius)---> outputDir:${outputDir} buildInfoPath:%{buildInfoPath}`);
 
 // Load the existing build number from environment variables or start with 1
 const buildNumber = process.env.BUILD_NUMBER ? parseInt(process.env.BUILD_NUMBER, 10) + 1 : 1;
