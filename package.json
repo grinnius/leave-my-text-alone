@@ -7,7 +7,7 @@
     "setGitIdentity": "git config --global user.email 'gr.innie+github@gmail.com' && git config --global user.name 'grinnius'",
     "commitBuildInfo": "git add ./LeaveMyTextAlone/buildInfo.json && git commit -m 'Update build number and timestamp' || echo 'No changes to commit'",
     "pushBuildInfo": "git push origin main",
-    "build": "npm run updateBuildInfo && npm run commitBuildInfo && npm run pushBuildInfo"
+    "build": "npm run setGitIdentity && npm run updateBuildInfo && npm run commitBuildInfo && npm run pushBuildInfo"
   },
   "keywords": [],
   "author": "grinnius",
