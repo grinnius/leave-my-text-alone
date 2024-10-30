@@ -1,5 +1,2 @@
 # Environment file storing build number
 .env
-
-# Build info file generated for each build
-buildInfo.json
