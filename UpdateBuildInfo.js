@@ -18,15 +18,17 @@ let buildInfo;
 try {
   buildInfo = JSON.parse(fs.readFileSync(buildInfoPath, 'utf-8'));
 } catch (error) {
-  console.log("(grinnius)---> Cannot read buildInfo.json:", error);
+  console.log('(grinnius)---> Cannot read buildInfo.json:', error);
   buildInfo = { buildNumber: 1, timestamp: "" }; // Default values if file is missing
 }
+
+console.log('(grinnius)---> Before buildInfo: ${buildInfo}');
 
 // Increment the build number and set a new timestamp
 buildInfo.buildNumber += 1;
 buildInfo.timestamp = new Date().toISOString();
 
-const timestamp = new Date().toISOString();
+console.log('(grinnius)---> After buildInfo: ${buildInfo}');
 
 fs.writeFileSync(buildInfoPath, JSON.stringify(buildInfo, null, 2), 'utf-8');
 console.log(`(grinnius)---> Build #${buildNumber} - ${timestamp}`);
