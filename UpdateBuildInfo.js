@@ -34,5 +34,4 @@ console.log('(grinnius)---> After buildInfo:');
 console.log(JSON.stringify(buildInfo, null, 2));
 
 fs.writeFileSync(buildInfoPath, JSON.stringify(buildInfo, null, 2), 'utf-8');
-console.log(`(grinnius)---> Build #${buildNumber} - ${timestamp}`);
 
