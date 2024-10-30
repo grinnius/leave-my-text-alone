@@ -11,13 +11,13 @@ function init_crawl_russian_capital(arr) {
     arr['Д'] = "Д";
     arr['Е'] = "EΕ";
     arr['Ж'] = "Ж";
-    arr['З'] = "3";
+    arr['З'] = "3Յ";
     arr['И'] = "И";
     arr['К'] = "KΚ";
     arr['Л'] = "Λ人几入";
     arr['М'] = "MΜᛖ";
     arr['Н'] = "HΗዝ";
-    arr['О'] = "O0ΘΟዕ";
+    arr['О'] = "O0ΘΟዕՕ";
     arr['П'] = "Π";
     arr['Р'] = "PΡ";
     arr['С'] = "C";

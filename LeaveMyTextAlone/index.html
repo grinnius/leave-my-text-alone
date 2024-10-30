@@ -5,6 +5,7 @@
 <head>
   <title>Leave My Text Alone!</title>
   <script type="application/javascript" src="js/crawl_russian.js"></script>
+  <script type="application/javascript" src="js/crawl_latin.js"></script>
 </head>
 
 <style>
@@ -139,56 +140,12 @@
   diacritic['Z'] = "ŹẐŽŻƵẒẔȤ";
   diacritic['z'] = "źẑžżƶẓẕʐʑ";
 
-  // var nocrawling = {};
-  //
-  // nocrawling['A'] = "А";
-  // nocrawling['a'] = "а";
-  // nocrawling['B'] = "В";
-  // nocrawling['b'] = "Ьხ";
-  // nocrawling['C'] = "С";
-  // nocrawling['c'] = "с";
-  // //		nocrawling['D'] = "";
-  // //		nocrawling['d'] = "";
-  // nocrawling['E'] = "Е";
-  // nocrawling['e'] = "е";
-  // //		nocrawling['F'] = "";
-  // //		nocrawling['f'] = "";
-  // //		nocrawling['G'] = "";
-  // //		nocrawling['g'] = "";
-  // nocrawling['H'] = "НΗ";
-  // //		nocrawling['h'] = "";
-  // nocrawling['I'] = "ן";
-  // //		nocrawling['i'] = "ו";
-  // //		nocrawling['J'] = "";
-  // //		nocrawling['j'] = "";
-  // nocrawling['K'] = "К";
-  // nocrawling['k'] = "к";
-  // //		nocrawling['L'] = "";
-  // //		nocrawling['l'] = "";
-  // nocrawling['M'] = "Мᛖ";
-  // nocrawling['m'] = "м";
-  // //		nocrawling['N'] = "";
-  // //		nocrawling['n'] = "";
-  // nocrawling['O'] = "О";
-  // nocrawling['o'] = "оο";
-  // nocrawling['P'] = "Р";
-  // nocrawling['p'] = "р";
-  // nocrawling['r'] = "г";
-  // //nocrawling['S'] = "ട";
-  // nocrawling['s'] = "ട";
-  // nocrawling['T'] = "Т";
-  // nocrawling['t'] = "ł";
-  // //nocrawling['V'] = "ν";
-  // nocrawling['v'] = "ν";
-  // nocrawling['X'] = "Х";
-  // nocrawling['x'] = "х";
-  // nocrawling['Y'] = "У";
-  // nocrawling['y'] = "у";
-  // nocrawling['Z'] = "Ζ";
 
   var nocrawling = {};
   init_crawl_russian_capital(nocrawling);
   init_crawl_russian_small(nocrawling);
+  init_crawl_latin_capital(nocrawling);
+  init_crawl_latin_small(nocrawling);
 </script>
 
 <div id="build-info"></div>
