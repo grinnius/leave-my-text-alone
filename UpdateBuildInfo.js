@@ -12,26 +12,22 @@ const buildInfoPath = path.join(outputDir, 'buildInfo.json');
 
 console.log(`(grinnius)---> outputDir:${outputDir} buildInfoPath:${buildInfoPath}`);
 
-// Load the existing build number from environment variables or start with 1
-const buildNumber = process.env.BUILD_NUMBER ? parseInt(process.env.BUILD_NUMBER, 10) + 1 : 1;
-const timestamp = new Date().toISOString();
+// Read the current build info from buildInfo.json
+let buildInfo;
 
-// Save the new build number and timestamp to a JSON file
-const buildInfo = {
-  buildNumber,
-  timestamp
-};
+try {
+  buildInfo = JSON.parse(fs.readFileSync(buildInfoPath, 'utf-8'));
+} catch (error) {
+  console.log("(grinnius)---> Cannot read buildInfo.json:", error);
+  buildInfo = { buildNumber: 1, timestamp: "" }; // Default values if file is missing
+}
+
+// Increment the build number and set a new timestamp
+buildInfo.buildNumber += 1;
+buildInfo.timestamp = new Date().toISOString();
+
+const timestamp = new Date().toISOString();
 
 fs.writeFileSync(buildInfoPath, JSON.stringify(buildInfo, null, 2), 'utf-8');
 console.log(`(grinnius)---> Build #${buildNumber} - ${timestamp}`);
-
-// Update the environment variable for Netlify
-fs.writeFileSync(
-  path.join(outputDir, '.env'),
-  `BUILD_NUMBER=${buildNumber}\n`
-);
-
-console.log(`(grinnius)---> Wrote to ${outputDir}.env Build #${buildNumber}`);
-
-
 
