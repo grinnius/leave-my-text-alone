@@ -4,6 +4,7 @@
 <html>
 <head>
   <title>Leave My Text Alone!</title>
+  <script type="application/javascript" src="js/crawl_russian.js"></script>
 </head>
 
 <style>
@@ -138,118 +139,56 @@
   diacritic['Z'] = "ŹẐŽŻƵẒẔȤ";
   diacritic['z'] = "źẑžżƶẓẕʐʑ";
 
+  // var nocrawling = {};
+  //
+  // nocrawling['A'] = "А";
+  // nocrawling['a'] = "а";
+  // nocrawling['B'] = "В";
+  // nocrawling['b'] = "Ьხ";
+  // nocrawling['C'] = "С";
+  // nocrawling['c'] = "с";
+  // //		nocrawling['D'] = "";
+  // //		nocrawling['d'] = "";
+  // nocrawling['E'] = "Е";
+  // nocrawling['e'] = "е";
+  // //		nocrawling['F'] = "";
+  // //		nocrawling['f'] = "";
+  // //		nocrawling['G'] = "";
+  // //		nocrawling['g'] = "";
+  // nocrawling['H'] = "НΗ";
+  // //		nocrawling['h'] = "";
+  // nocrawling['I'] = "ן";
+  // //		nocrawling['i'] = "ו";
+  // //		nocrawling['J'] = "";
+  // //		nocrawling['j'] = "";
+  // nocrawling['K'] = "К";
+  // nocrawling['k'] = "к";
+  // //		nocrawling['L'] = "";
+  // //		nocrawling['l'] = "";
+  // nocrawling['M'] = "Мᛖ";
+  // nocrawling['m'] = "м";
+  // //		nocrawling['N'] = "";
+  // //		nocrawling['n'] = "";
+  // nocrawling['O'] = "О";
+  // nocrawling['o'] = "оο";
+  // nocrawling['P'] = "Р";
+  // nocrawling['p'] = "р";
+  // nocrawling['r'] = "г";
+  // //nocrawling['S'] = "ട";
+  // nocrawling['s'] = "ട";
+  // nocrawling['T'] = "Т";
+  // nocrawling['t'] = "ł";
+  // //nocrawling['V'] = "ν";
+  // nocrawling['v'] = "ν";
+  // nocrawling['X'] = "Х";
+  // nocrawling['x'] = "х";
+  // nocrawling['Y'] = "У";
+  // nocrawling['y'] = "у";
+  // nocrawling['Z'] = "Ζ";
+
   var nocrawling = {};
-  nocrawling['A'] = "А";
-  nocrawling['a'] = "а";
-  nocrawling['B'] = "В";
-  nocrawling['b'] = "Ьხ";
-  nocrawling['C'] = "С";
-  nocrawling['c'] = "с";
-  //		nocrawling['D'] = "";
-  //		nocrawling['d'] = "";
-  nocrawling['E'] = "Е";
-  nocrawling['e'] = "е";
-  //		nocrawling['F'] = "";
-  //		nocrawling['f'] = "";
-  //		nocrawling['G'] = "";
-  //		nocrawling['g'] = "";
-  nocrawling['H'] = "НΗ";
-  //		nocrawling['h'] = "";
-  nocrawling['I'] = "ן";
-  //		nocrawling['i'] = "ו";
-  //		nocrawling['J'] = "";
-  //		nocrawling['j'] = "";
-  nocrawling['K'] = "К";
-  nocrawling['k'] = "к";
-  //		nocrawling['L'] = "";
-  //		nocrawling['l'] = "";
-  nocrawling['M'] = "Мᛖ";
-  nocrawling['m'] = "м";
-  //		nocrawling['N'] = "";
-  //		nocrawling['n'] = "";
-  nocrawling['O'] = "О";
-  nocrawling['o'] = "оο";
-  nocrawling['P'] = "Р";
-  nocrawling['p'] = "р";
-  nocrawling['r'] = "г";
-  //nocrawling['S'] = "ട";
-  nocrawling['s'] = "ട";
-  nocrawling['T'] = "Т";
-  nocrawling['t'] = "ł";
-  //nocrawling['V'] = "ν";
-  nocrawling['v'] = "ν";
-  nocrawling['X'] = "Х";
-  nocrawling['x'] = "х";
-  nocrawling['Y'] = "У";
-  nocrawling['y'] = "у";
-  nocrawling['Z'] = "Ζ";
-
-  // Russian capitals
-  nocrawling['А'] = "AΑ";
-  //nocrawling['Б'] = "о";
-  nocrawling['В'] = "BΒ";
-  nocrawling['Г'] = "Γ厂";
-  //nocrawling['Д'] = "г";
-  nocrawling['Е'] = "EΕ";
-  //nocrawling['Ж'] = "ł";
-  nocrawling['З'] = "3";
-  //nocrawling['И'] = "х";
-  nocrawling['К'] = "KΚ";
-  nocrawling['Л'] = "Λ人几入";
-  nocrawling['М'] = "MΜᛖ";
-  nocrawling['Н'] = "HΗዝ";
-  nocrawling['О'] = "O0ΘΟዕ";
-  nocrawling['П'] = "Π";
-  nocrawling['Р'] = "PΡ";
-  nocrawling['С'] = "C";
-  nocrawling['Т'] = "TΤፕ";
-  nocrawling['У'] = "YΥ";
-  nocrawling['Ф'] = "中Φቅ";
-  nocrawling['Х'] = "XΧ";
-  //nocrawling['Ц'] = "у";
-  //nocrawling['Ч'] = "х";
-  nocrawling['Ш'] = "山";
-  //nocrawling['Щ'] = "у";
-  //nocrawling['Ъ'] = "У";
-  //nocrawling['Ы'] = "у";
-  nocrawling['Ь'] = "b";
-  //nocrawling['Э'] = "У";
-  //nocrawling['Ю'] = "у";
-  //nocrawling['Я'] = "у";
-
-  // Russian small
-  nocrawling['а'] = "aα⍺";
-  nocrawling['б'] = "6ნ";
-  //nocrawling['в'] = "B";
-  //nocrawling['г'] = "р";
-  //nocrawling['д'] = "г";
-  nocrawling['е'] = "eϱ";
-  //nocrawling['ж'] = "ł";
-  //nocrawling['з'] = "3";
-  nocrawling['и'] = "ս";
-  nocrawling['к'] = "kκ";
-  //nocrawling['л'] = "٨";
-  nocrawling['м'] = "ϻ";
-  //nocrawling['н'] = "H";
-  nocrawling['о'] = "σഠ";
-  //nocrawling['п'] = "р";
-  nocrawling['р'] = "pρ";
-  nocrawling['с'] = "c";
-  nocrawling['т'] = "τ";
-  nocrawling['у'] = "yყ";
-  nocrawling['ф'] = "φ";
-  nocrawling['х'] = "xχ";
-  //nocrawling['ц'] = "у";
-  nocrawling['ч'] = "પ";
-  nocrawling['ш'] = "ա";
-  //nocrawling['щ'] = "у";
-  //nocrawling['ъ'] = "У";
-  //nocrawling['ы'] = "у";
-  // nocrawling['ь'] = "b";
-  //nocrawling['э'] = "У";
-  //nocrawling['ю'] = "у";
-  //nocrawling['я'] = "у";
-
+  init_crawl_russian_capital(nocrawling);
+  init_crawl_russian_small(nocrawling);
 </script>
 
 <div id="build-info"></div>
