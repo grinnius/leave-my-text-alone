@@ -6,7 +6,7 @@ function init_crawl_latin_capital(arr) {
     arr['E']="ЕΕ";
     // arr['F']="";
     // arr['G']="";
-    arr['H']="НΗ";
+    arr['H']="НΗዘ";
     arr['I']="Ι";
     // arr['J']="";
     arr['K']="КΚ";
@@ -18,7 +18,7 @@ function init_crawl_latin_capital(arr) {
     // arr['Q']="";
     // arr['R']="";
     arr['S']="Տ";
-    arr['T']="ТΤፕ";
+    arr['T']="ТΤፕፐ";
     arr['U']="ԱՄ";
     // arr['V']="";
     arr['W']="山Ш";
@@ -39,7 +39,7 @@ function init_crawl_latin_small(arr) {
     // arr['j']="";
     arr['k']="к";
     // arr['l']="";
-    arr['m']="мμ";
+    arr['m']="мμጠ";
     arr['n']="ո";
     arr['o']="оο";
     arr['p']="р";
