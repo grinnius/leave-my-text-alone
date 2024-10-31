@@ -9,6 +9,9 @@
     "pushBuildInfo": "git remote set-url origin https://${GITHUB_TOKEN}@github.com/grinnius/leave-my-text-alone.git && git push origin main",
     "build": "npm run setGitIdentity && npm run updateBuildInfo"
   },
+  "dependencies": {
+    "node-fetch": "^3.0.0"
+  },
   "keywords": [],
   "author": "grinnius",
   "license": "ISC"
