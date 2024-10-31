@@ -16,7 +16,8 @@ exports.handler = async (event) => {
     // Append the log entry to the log file
     fs.appendFileSync(logFilePath, logEntry);
 
-    console.log('${timestamp} : Visitor IP: ${visitorIp} ');
+    const clientIp = event.headers['client-ip'];
+    console.log(`Client IP: ${clientIp}`);
 
     return {
         statusCode: 200,
