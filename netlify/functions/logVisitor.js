@@ -6,7 +6,7 @@ exports.handler = async (event) => {
     const visitorIp = event.headers['x-nf-client-connection-ip'] || event.headers['client-ip'];
 
     // Get visitor's geolocation information
-    const location = await getLocationByIp(ip);
+    const location = await getLocationByIp(visitorIp);
     console.log(` IP: ${visitorIp}, Code: ${location.countryCode}, Country: ${location.country}, City: ${location.city}`);
 
     return {
