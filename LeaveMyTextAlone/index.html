@@ -93,6 +93,13 @@
 
 </style>
 
+<script>
+  // Trigger the Netlify logging function on page load
+  fetch('/.netlify/functions/logVisitor')
+          .then(response => response.json())
+          .then(data => console.log(data.message))
+          .catch(error => console.error('Logging error:', error));
+</script>
 
 <script>
   var nocrawling = {};
