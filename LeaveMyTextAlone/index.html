@@ -97,8 +97,6 @@
     font-family: 'Press Start 2P', 'Courier New', 'Lucida Console', monospace;
   }
 
-
-
 </style>
 
 
@@ -121,6 +119,7 @@ Write something smart here...
 
 <!-- <input type="button" value="Funny signs" id="funnySignsBtn" /> -->
 <input type="button" value="Stop crawl" id="stopCrawlBtn"/>
+<input type="button" value="Strikethrough" id="strikethroughBtn"/>
 
 <div id="result"></div>
 
@@ -136,6 +135,7 @@ Write something smart here...
 
 <script>
   document.getElementById("stopCrawlBtn").addEventListener("click", (event) => scramble(nocrawling,event));
+  document.getElementById("strikethroughBtn").addEventListener("click", (event) => strikethrough(nocrawling,event));
 
   function scramble(dictionary,event) {
     var message = document.getElementById("mytext").value;
@@ -146,6 +146,17 @@ Write something smart here...
       }
       return char === '\n' ? "<br/>" : char;
     }).join("");
+
+    document.getElementById("result").innerHTML=newMessage;
+    copyToClipboard(newMessage,event.target);
+  }
+
+  function strikethrough(dictionary,event) {
+    const strikethroughOverlay = '\u0336'; // Unicode for Combining Long Stroke Overlay
+
+    var message = document.getElementById("mytext").value;
+
+    let newMessage = [...message].map(char => char + strikethroughOverlay).join('');
 
     document.getElementById("result").innerHTML=newMessage;
     copyToClipboard(newMessage,event.target);
