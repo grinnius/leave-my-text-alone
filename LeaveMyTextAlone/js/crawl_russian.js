@@ -48,7 +48,7 @@ function init_crawl_russian_small(arr) {
     arr['з'] = "3";
     arr['и'] = "ս";
     arr['к'] = "kκ";
-    arr['л'] = "л";
+    arr['л'] = "λ";
     arr['м'] = "ϻ";
     arr['н'] = "н";
     arr['о'] = "σഠ";
