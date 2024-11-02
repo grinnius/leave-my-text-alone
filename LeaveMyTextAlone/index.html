@@ -139,6 +139,30 @@
     margin-bottom: 10px;
   }
 
+  /* Styles for the notification */
+  .messenger-notification {
+    position: fixed;
+    bottom: -100px; /* Start off-screen */
+    right: 20px;
+    width: 300px;
+    padding: 15px;
+    background-color: #0084ff; /* Messenger blue */
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .messenger-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+    bottom: 20px; /* Visible position */
+  }
+
   /* Responsive Layout */
   @media (max-width: 600px) {
     .sidebar {
@@ -232,6 +256,20 @@
   document.getElementById("stopCrawlBtn").addEventListener("click", (event) => scramble(nocrawling,event));
   document.getElementById("strikethroughBtn").addEventListener("click", (event) => strikethrough(nocrawling,event));
 
+  // Trigger notification 3 seconds after page load
+  window.onload = () => {
+      enqueueMessage(3,10,
+              "Mark Zuckerberg",
+              "We are going to remove your message because it doesn't follow Facebook community standards.");
+    enqueueMessage(3,10,
+              "Путин В.В.",
+              "Ну ты сам понял чё написал или тебе пояснить?");
+    enqueueMessage(5,10,
+            "Joe Biden",
+            "Don't. Just don't.");
+
+  };
+
   function scramble(dictionary,event) {
     var message = document.getElementById("mytext").value;
 
@@ -309,6 +347,77 @@
       hour12: false
     };
     return new Intl.DateTimeFormat('en-GB', options).format(date).replace(',', '');
+  }
+
+  // Queue for storing messages
+  const messageQueue = [];
+
+  /**
+   * Add a message to the queue and process it sequentially
+   * @param {number} delayInSeconds - Delay in seconds before showing the notification
+   * @param {number} timeToLiveInSeconds
+   * @param {string} name - Name of the sender
+   * @param {string} message - Message content
+   */
+  function enqueueMessage(delayInSeconds, timeToLiveInSeconds, name, message ) {
+    // Add message to queue
+    messageQueue.push({ name, message, delayInSeconds, timeToLiveInSeconds });
+
+    // Start processing the queue if it’s not already running
+    if (messageQueue.length === 1) {
+      processQueue();
+    }
+  }
+
+  /**
+   * Process the message queue
+   */
+  function processQueue() {
+    // If the queue is empty, stop processing
+    if (messageQueue.length === 0) return;
+
+    // Get the next message from the queue
+    const { name, message, delayInSeconds, timeToLiveInSeconds  } = messageQueue[0];
+
+
+    // Show the notification after the specified delay
+    setTimeout(() => {
+      showMessengerNotification(timeToLiveInSeconds, name, message, () => {
+        // Remove the displayed message from the queue
+        messageQueue.shift();
+        // Process the next message in the queue
+        processQueue();
+      });
+    }, delayInSeconds * 1000);
+  }
+
+
+  /**
+   * Display a Facebook Messenger-like notification
+   * @param timeToDisplaySeconds How long the message stays on the screen
+   * @param {string} name - Name of the sender
+   * @param {string} message - Message content
+   * @param {Function} onComplete - What to do after the message
+   */
+  function showMessengerNotification(timeToDisplaySeconds, name, message, onComplete) {
+
+      // Create the notification container
+      const notification = document.createElement('div');
+      notification.className = 'messenger-notification';
+      notification.innerHTML = `<strong>${name}</strong>: ${message}`;
+
+      // Append notification to body
+      document.body.appendChild(notification);
+
+      // Animate in
+      setTimeout(() => notification.classList.add('show'), 10);
+      // Remove notification after defined time
+      setTimeout(() => {
+        notification.classList.remove('show');
+        // Remove from DOM after animation
+        setTimeout(() => document.body.removeChild(notification), 300);
+        if (onComplete) onComplete();
+      }, timeToDisplaySeconds * 1000);
   }
 
 </script>
