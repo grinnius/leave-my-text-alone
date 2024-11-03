@@ -10,7 +10,8 @@
     "build": "npm run setGitIdentity && npm run updateBuildInfo"
   },
   "dependencies": {
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^2.6.7",
+    "googleapis": "latest"
   },
   "keywords": [],
   "author": "grinnius",
