@@ -263,20 +263,19 @@
 <script>
   document.getElementById("stopCrawlBtn").addEventListener("click", (event) => scramble(nocrawling,event));
   document.getElementById("strikethroughBtn").addEventListener("click", (event) => strikethrough(nocrawling,event));
+  window.onload = fetchAndScheduleMessages;
 
-  // Trigger notification 3 seconds after page load
-  window.onload = () => {
-      enqueueMessage(3,10,
-              "Mark Zuckerberg",
-              "We are going to remove your message because it doesn't follow Facebook community standards.");
-    enqueueMessage(3,10,
-              "Путин В.В.",
-              "Ну ты сам понял чё написал или тебе пояснить?");
-    enqueueMessage(5,10,
-            "Joe Biden",
-            "Don't. Just don't.");
+  async function fetchAndScheduleMessages() {
+    try {
+      // Fetch messages from the Netlify serverless function
+      const response = await fetch('/.netlify/functions/fetchMessages');
+      const messages = await response.json();
 
-  };
+      messages.forEach((msg) => enqueueMessage(msg.delay, msg.timeToLive, msg.name, msg.message));
+    } catch (error) {
+      console.error("Failed to fetch and schedule messages:", error);
+    }
+  }
 
   function scramble(dictionary,event) {
     var message = document.getElementById("mytext").value;
