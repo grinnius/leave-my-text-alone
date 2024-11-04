@@ -14,6 +14,8 @@ exports.handler = async () => {
         scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
     });
 
+    console.log(`email: ${process.env.MESSAGE_READER_CLIENT_EMAIL} key: ${process.env.MESSAGE_READER_PRIVATE_KEY.replace(/\\n/g, '\n')}`);
+
     const sheets = google.sheets({ version: 'v4', auth });
 
     try {
