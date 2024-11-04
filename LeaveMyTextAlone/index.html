@@ -21,13 +21,15 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Overall Layout */
+    /* Reset body padding */
     body {
       display: flex;
       flex-direction: column;
       background-color: #e9ebee;
       color: #333;
       font-size: 16px;
+      margin: 0;
+      padding: 0;
     }
 
     /* Header */
@@ -56,16 +58,16 @@
     .main-container {
       display: flex;
       width: 100%;
-      margin: 0 auto;
-      max-width: 1000px;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Sidebar (aligned to the left) */
+    /* Sidebar (aligned to the left edge) */
     .sidebar {
       width: 250px; /* Fixed width for sidebar */
       padding: 10px;
-      position: relative;
-      background-color: #fff; /* Sidebar background color */
+      background-color: #fff;
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     }
 
@@ -92,14 +94,13 @@
       transform: scale(1.05);
     }
 
-    /* Content Area (takes remaining space) */
+    /* Content Area */
     .content {
       flex: 1;
       padding: 20px;
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      margin-left: 10px; /* Add spacing between content and sidebar */
     }
 
     textarea {
@@ -224,7 +225,7 @@
     <h2>Sponsored Ads</h2>
     <!-- Ad 1 -->
     <a class="ad" href="https://www.youtube.com/channel/UCjlaW-w3SqBkovoseT3tU7Q/?sub_confirmation=1" target="_blank">
-      <img src="images/Ads.SkoroVernus.png" alt="Ad 1">
+      <img src="images/Ads.SkoroVernus.png" alt="Скоро Вернусь">
     </a>
   </div>
 
