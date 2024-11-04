@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "node-fetch": "^2.6.7",
-    "googleapis": "latest"
+    "@google-cloud/google-auth-library": "^8.7.0"
   },
   "engines": {
     "node": "16.8.0"
