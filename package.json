@@ -13,6 +13,9 @@
     "node-fetch": "^2.6.7",
     "googleapis": "latest"
   },
+  "engines": {
+    "node": "16.8.0"
+  },
   "keywords": [],
   "author": "grinnius",
   "license": "ISC"
